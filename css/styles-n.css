@@ -59,7 +59,7 @@ body {
 /* Titre principal de la page avec une transition d'agrandissement d'échelle au survol */
 h1 {
     font-family: 'Cookie', cursive;
-    font-size: 1.3rem;
+    font-size: 40px;
     transition: transform 0.3s ease;
     color: var(--couleur-titre);
     text-align: center;
@@ -71,7 +71,7 @@ h1:hover {
 
 h2 {
     font-family: 'Cookie', cursive;
-    font-size: 1.8rem;
+    font-size: 40px;
     color: var(--couleur-titre);
     text-align: center;
     margin-top: 2rem;
@@ -79,8 +79,8 @@ h2 {
 
 h3 {
     font-family: 'Cookie', cursive;
-    font-size: 1.2rem;
-    color: var(--couleur-texte-principale);
+    font-size: 40px;
+    color: var(--couleur-titre);
     margin-bottom: 1rem;
 }
 
@@ -122,10 +122,13 @@ ul {
     transform: scale(1.05);
 }
 
-/* Style spécifique pour la bannière d'images collées */
-.container .featured-image:hover {
-    transform: none;
-    /* Désactive l'effet de survol pour les images de la bannière */
+.container {
+    display: flex;
+    width: 1440px;
+    justify-content: flex-start; /* Images collées au début */
+    align-items: center;
+    margin: 0 auto; /* Pour centrer le container si nécessaire */
+    flex-wrap: wrap; /* Pour permettre le passage à la ligne sur les petits écrans */
 }
 
 /* Pour les logos, on garde une taille différente */
@@ -175,11 +178,14 @@ ul {
         ----------------------------------------------------------*/
 header {
     background-color: var(--couleur-fond-principale);
-    padding: 1rem 0;
+    padding: 0;
+    /* Suppression du padding pour mieux contrôler  la hauteur */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
+    height: 90px;
+    /* Hauteur fixe pour le header */
 }
 
 .navbar {
@@ -187,16 +193,33 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    height: 100%;
+    /* Prend toute la hauteur du header */
 }
+
+.center-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-logo .primary-logo {
+    width: auto;
+    height: 90px;
+    max-height: none;
+    transition: transform 0.3s ease;
+}
+
+
 
 
 .logo-container {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    /* Dimensions fixes pour le conteneur */
-    width: 200px; 
-    height: 60px;  
+    width: 200px;
+    height: 80px;
+    /* Ajusté pour s'adapter au header */
 }
 
 /* Style commun pour les deux images de logo */
@@ -238,7 +261,6 @@ header {
 /* Menu vertical qui apparaît au survol */
 .nav-menu {
     position: absolute;
-    /* Changé de fixed à absolute pour un positionnement relatif à la navbar */
     left: 20px;
     top: 120px;
     width: 120px;
@@ -365,7 +387,7 @@ header {
 }
 
 .contact-button:hover {
-    background-color: var(--couleur-lien-hover);
+    background-color: var(--rose-fonce);
 }
 
 .phone-number {
@@ -405,7 +427,23 @@ header {
         font-size: 1.1rem;
         font-family: 'Montserrat-Alternates', sans-serif;
     }
+
+    .center-logo .primary-logo {
+        height: 120px;
+        /* Encore plus grand sur les écrans larges */
+    }
+
+    header {
+        height: 100px;
+        /* Un peu plus grand sur les écrans larges */
+    }
+
+    .nav-menu {
+        top: 100px;
+        /* Ajustement correspondant pour la position du menu dropdown */
+    }
 }
+
 /* Styles pour les écrans plus petits */
 @media screen and (max-width: 600px) {
     .featured-image {
