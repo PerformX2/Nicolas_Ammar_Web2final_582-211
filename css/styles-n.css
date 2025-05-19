@@ -1,0 +1,98 @@
+/*--------------------------------------------------------- 
+# SECTION : Variables de couleurs
+---------------------------------------------------------*/
+:root {
+    /* Palette de couleurs rose */
+    --rose-pale: #FDB9BA;
+    /* Rose pâle doux */
+    --rose-mauve: #AF6B82;
+    /* Rose tirant sur le mauve */
+    --rose-tres-pale: #FBE6EF;
+    /* Rose très pâle, presque blanc */
+    --rose-vif: #FA309E;
+    /* Rose vif */
+    --rose-fonce: #F4037C;
+    /* Rose foncé */
+    --rose-blanc: #FDF1F3;
+    /* Rose presque blanc */
+
+    /* Variables définies */
+    --couleur-fond-principale: var(--rose-pale);
+    --couleur-texte-principale: #333;
+    --couleur-accent: var(--rose-fonce);
+    --couleur-lien: var(--rose-vif);
+    --couleur-lien-hover: var(--rose-mauve);
+    --couleur-fond-section: var(--rose-tres-pale);
+    --couleur-fond-footer: var(--rose-pale);
+    --couleur-titre: var(--rose-fonce);
+}
+
+/*--------------------------------------------------------- 
+# SECTION : font-face 
+---------------------------------------------------------*/
+
+/* Permet d’importer une police externe dans le site.*/
+
+@font-face {    /* Typographie #1 */
+    font-family: "Cookie";
+    src: url("../assets/polices/Cookie/Cookie-Regular.ttf") format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {    /* Typographie #2 */
+    font-family: "Montserrat-Alternates";
+    src: url("../assets/polices/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/*---------------------------------------------------------- 
+# SECTION : Styles de Nicolas 
+----------------------------------------------------------*/
+
+.hero {
+    background-color: #fff0f7;  /*Étant donné que j'ai réussi à faire le héro, mais je n'ai pas réussi à étendre images dans tout l'espace voici la couleur du fond héro*/
+    width: 100%;    /* Prend toute la largeur du conteneur.*/
+    padding: 60px 20px; /* Prend toute la largeur du conteneur.*/
+    display: flex;  /* Active Flexbox pour alignement..*/
+    justify-content: center; /*Centre horizontalement le contenu.*/
+    align-items: center;    /* Centre verticalement le contenu.*/
+}
+
+.hero::before {
+    content: ''; /* Ça génère un pseudo-élément vide. / C’est obligatoire pour que le pseudo-élément existe et puisse être stylisé avec du CSS */
+    position: absolute; /*Permet de positionner librement l’élément.*/
+    top: 0; 
+    left: 0; 
+    /*Position en haut à gauche.*/
+    width: 100%;
+    height: 100%;
+    /*Ça rempli tout l'élément parent*/
+}
+
+.hero-content {     /* Sert à styliser l'enfant de ma classe hero */
+    display: flex;  
+    flex-wrap: wrap; /*Ça affiche sur une même ligne et les gardes juxtaposés */
+    justify-content: center;
+    gap: 30px; /*Espace entre les éléments internes. (c'est un écart) */
+    max-width: 1200px; /*Limite la largeur totale du contenu.*/
+}
+
+.hero-content img {    /* Sert à styliser les images de l'enfant dans la classe hero */
+    width: 250px;   
+    height: auto;   /* Adapte la hauteur automatique */
+    object-fit: cover; /* Coupe l’image pour bien remplir l’espace.*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transite les changements en douceur.*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ça ajoute une ombre portée.*/
+}
+
+.hero-content img:hover {   /* Sert à styliser les images de l'enfant dans la classe hero pendant le survol*/
+    transform: scale(1.05);  /*Ça agrandit légèrement l’image.*/
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /*L'ombre portée est un peu plus forte*/
+}
+
+/* Ça désigne la zone de cette classe et ça contient tous les enfants*/
+.main-evenement {  
+ 
+}
