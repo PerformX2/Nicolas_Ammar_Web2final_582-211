@@ -210,9 +210,6 @@ header {
     transition: transform 0.3s ease;
 }
 
-
-
-
 .logo-container {
     position: relative;
     display: inline-block;
@@ -345,6 +342,70 @@ header {
     line-height: 1.8;
 }
 
+.hero {
+    position: relative;
+    height: 80vh; /* Ajustez la hauteur */
+    background-image: url('assets/images/hero-cupcake.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay sombre pour meilleure lisibilité */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff6b8b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff4757;
+}
+
+/*---------------------------------------------------------- 
+        # SECTION : apropos
+        ----------------------------------------------------------*/
+
+/*---------------------------------------------------------- 
+        # SECTION : évènement
+        ----------------------------------------------------------*/        
+
+
 /*---------------------------------------------------------- 
         # SECTION : Footer
         ----------------------------------------------------------*/
@@ -395,9 +456,6 @@ header {
     font-weight: bold;
 }
 
-.locate-link {
-    text-decoration: underline;
-}
 
 .copyright {
     text-align: center;
