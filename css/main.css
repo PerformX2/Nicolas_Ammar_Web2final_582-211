@@ -1,6 +1,6 @@
 /*--------------------------------------------------------- 
-        # SECTION : Variables de couleurs
-        ---------------------------------------------------------*/
+# SECTION : Variables de couleurs
+---------------------------------------------------------*/
 :root {
     /* Palette de couleurs rose */
     --rose-pale: #FDB9BA;
@@ -16,7 +16,7 @@
     --rose-blanc: #FDF1F3;
     /* Rose presque blanc */
 
-    /* Variables fonctionnelles */
+    /* Variables définies */
     --couleur-fond-principale: var(--rose-pale);
     --couleur-texte-principale: #333;
     --couleur-accent: var(--rose-fonce);
@@ -30,14 +30,14 @@
 /*--------------------------------------------------------- 
 # SECTION : font-face 
 ---------------------------------------------------------*/
-@font-face {
+@font-face {    /* Typographie #1 */
     font-family: "Cookie";
     src: url("../assets/polices/Cookie/Cookie-Regular.ttf") format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {
+@font-face {    /* Typographie #2 */
     font-family: "Montserrat-Alternates";
     src: url("../assets/polices/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format('truetype');
     font-weight: normal;
@@ -319,28 +319,39 @@ header {
     gap: 1rem;
 }
 
-/*---------------------------------------------------------- 
-        # SECTION : Héros et présentation
-        ----------------------------------------------------------*/
-.presentation {
-    padding: 2rem 1rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--rose-blanc);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+/* Menu vertical à gauche */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background-color: var(--rose-pale);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
 }
 
-.presentation h2 {
-    color: var(--couleur-titre);
-    font-family: 'Cookie', cursive;
-    margin-bottom: 1.5rem;
+.side-menu ul {
+  list-style: none;
+  padding: 0;
 }
 
-.presentation p {
-    text-align: justify;
-    line-height: 1.8;
+.side-menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu img {
+  width: 30px;
+}
+
+.side-menu span {
+  display: block;
+  font-size: 0.8em;
+  color: var(--rose-fonce);
+  margin-top: 5px;
 }
 
 /*---------------------------------------------------------- 
@@ -406,52 +417,3 @@ header {
     flex-basis: 100%;
 }
 
-/*---------------------------------------------------------------- 
-        # ADAPTATION PAR MEDIA QUERIES (Responsiveness)
-        ----------------------------------------------------------------*/
-
-/* Styles pour les écrans d'une largeur de minimum 778px et plus */
-@media screen and (min-width: 778px) {
-    h1 {
-        font-family: 'Cookie', cursive;
-        font-size: 4vw;
-    }
-
-    .presentation {
-        padding: 3rem 2rem;
-    }
-
-    .presentation p {
-        font-size: 1.1rem;
-        font-family: 'Montserrat-Alternates', sans-serif;
-    }
-
-    .center-logo .primary-logo {
-        height: 120px;
-        /* Encore plus grand sur les écrans larges */
-    }
-
-    header {
-        height: 100px;
-        /* Un peu plus grand sur les écrans larges */
-    }
-
-    .nav-menu {
-        top: 100px;
-        /* Ajustement correspondant pour la position du menu dropdown */
-    }
-}
-
-/* Styles pour les écrans plus petits */
-@media screen and (max-width: 600px) {
-    .featured-image {
-        width: 250px;
-        height: 250px;
-    }
-
-    .container .featured-image {
-        width: 33.333%;
-        /* 3 images visibles à la fois sur mobile */
-        height: 200px;
-    }
-}
