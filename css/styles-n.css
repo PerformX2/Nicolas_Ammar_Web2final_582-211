@@ -112,7 +112,6 @@ ul {
     height: 300px;
     object-fit: cover;
     /* Garde les proportions de l'image et la coupe si nécessaire */
-    border-radius: 8px;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -262,7 +261,6 @@ header {
     top: 120px;
     width: 120px;
     background-color: #FFFFFF;
-    border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 15px 10px;
     opacity: 0;
@@ -327,7 +325,6 @@ header {
     max-width: 800px;
     margin: 0 auto;
     background-color: var(--rose-blanc);
-    border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -343,16 +340,12 @@ header {
 }
 
 .hero {
-    position: relative;
-    height: 80vh; /* Ajustez la hauteur */
-    background-image: url('assets/images/hero-cupcake.jpg');
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    background-color: #fff0f7; /* rose pâle */
+    padding: 60px 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
+    align-items: center;
 }
 
 .hero::before {
@@ -366,10 +359,24 @@ header {
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.hero-content img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
@@ -401,9 +408,93 @@ header {
         # SECTION : apropos
         ----------------------------------------------------------*/
 
+
+
 /*---------------------------------------------------------- 
         # SECTION : évènement
         ----------------------------------------------------------*/        
+
+.header-evenement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--rose-tres-pale);
+}
+
+.header-evenement .logo {
+  max-height: 100px;
+}
+
+.header-icons .icon {
+  width: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* Menu vertical à gauche */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background-color: var(--rose-pale);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu img {
+  width: 30px;
+}
+
+.side-menu span {
+  display: block;
+  font-size: 0.8em;
+  color: var(--rose-fonce);
+  margin-top: 5px;
+}
+
+/* Contenu principal */
+.main-evenement {
+  margin-left: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.texte-evenement {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.texte-evenement h1 {
+  font-size: 3rem;
+  color: var(--rose-fonce);
+}
+
+.images-evenement {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 45%;
+}
+
+.images-evenement img {
+  width: 100%;
+}
 
 
 /*---------------------------------------------------------- 
@@ -513,5 +604,16 @@ header {
         width: 33.333%;
         /* 3 images visibles à la fois sur mobile */
         height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-content img {
+        width: 90%;
     }
 }
