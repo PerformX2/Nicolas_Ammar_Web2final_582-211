@@ -44,555 +44,261 @@
     font-style: italic;
 }
 
-/*--------------------------------------------------------- 
-        # SECTION : Styles généraux - Mobile first
-        ---------------------------------------------------------*/
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat-Alternates', sans-serif;
-    background-color: var(--couleur-fond-principale);
-    color: var(--couleur-texte-principale);
-    font-size: 16px;
+/*---------------------------------------------------------- 
+        # SECTION : Contenu principal - Mobile First
+        ----------------------------------------------------------*/
+/* le Styles de base pour mobile */
+main {
+    padding: 15px;
 }
 
-/* Titre principal de la page avec une transition d'agrandissement d'échelle au survol */
+.presentation {
+    padding: 1.5rem 0.8rem;
+    text-align: center;
+}
+
 h1 {
     font-family: 'Cookie', cursive;
-    font-size: 32px;
-    transition: transform 0.3s ease;
+    font-size: 7vw;
+    /*pour qu'il soit Plus grand sur mobile */
     color: var(--couleur-titre);
-    text-align: center;
-}
-
-h1:hover {
-    transform: scale(1.05);
-}
-
-h2 {
-    font-family: 'Cookie', cursive;
-    font-size: 28px;
-    color: var(--couleur-titre);
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-h3 {
-    font-family: 'Cookie', cursive;
-    font-size: 24px;
-    color: var(--couleur-titre);
-    margin-bottom: 0.8rem;
-}
-
-p {
-    margin-bottom: 1.2rem;
-    font-size: 0.9rem;
-    font-family: 'Montserrat-Alternates', sans-serif;
-}
-
-a {
-    color: var(--couleur-lien);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--couleur-lien-hover);
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Images adaptées pour mobile */
-.featured-image {
-    width: 100%;
-    max-width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 8px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.featured-image:hover {
-    transform: scale(1.03);
-}
-
-.container {
-    width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Pour les logos, on garde une taille différente */
-.primary-logo,
-.footer-logo {
-    width: auto;
-    height: auto;
-    max-height: 50px;
-    object-fit: contain;
-    box-shadow: none;
-    margin: 0;
-}
-
-/* Ajustement pour les conteneurs d'images */
-.cupcake {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 0;
-    padding: 1.5rem 0;
-    background-color: var(--rose-tres-pale);
-    width: 100%;
-}
-
-.cupcake-item {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-/* Pour la carte dans le footer */
-.map .featured-image {
-    width: 100%;
-    max-width: 250px;
-    height: 180px;
-}
-
-/* Style pour les icônes de navigation */
-.search-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    margin: 0 8px;
-    box-shadow: none;
-}
-
-/*---------------------------------------------------------- 
-        # SECTION : En-tête (nav, logo etc) - Mobile first
-        ----------------------------------------------------------*/
-header {
-    background-color: var(--couleur-fond-principale);
-    padding: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: 70px;
-}
-
-.navbar-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.8rem;
-    height: 100%;
-}
-
-.center-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.center-logo .primary-logo {
-    width: auto;
-    height: 60px;
-    max-height: none;
-    transition: transform 0.3s ease;
-}
-
-.logo-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    width: 140px;
-    height: 60px;
-}
-
-/* Style commun pour les deux images de logo */
-.logo-container .primary-logo,
-.logo-container .hover-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Image principale visible par défaut */
-.logo-container .primary-logo {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Image de survol invisible par défaut */
-.logo-container .hover-image {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Au survol du conteneur, cacher l'image principale */
-.logo-container:hover .primary-logo {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Au survol du conteneur, afficher l'image de survol */
-.logo-container:hover .hover-image {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Menu vertical qui apparaît au survol */
-.nav-menu {
-    position: absolute;
-    left: 10px;
-    top: 70px;
-    /* Aligné avec la hauteur du header mobile */
-    width: 130px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 12px 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    z-index: 1000;
-}
-
-/* Au survol du logo, le menu apparaît */
-.logo-container:hover~.nav-menu,
-.nav-menu:hover {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Style pour la liste de navigation verticale */
-.nav-menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    list-style: none;
-    padding: 0;
-}
-
-/* Style pour chaque élément de menu */
-.nav-item {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.nav-item:last-child {
-    margin-bottom: 0;
-}
-
-/* Style des liens dans le menu vertical */
-.nav-link {
-    color: var(--couleur-lien);
-    font-weight: 600;
-    font-size: 13px;
-    text-align: center;
-    transition: all 0.3s ease;
-    display: block;
-    width: 100%;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    transform: scale(1.05);
-    color: var(--couleur-lien-hover);
-}
-
-/* Style pour les icônes à droite */
-.nav-icons {
-    display: flex;
-    align-items: center;
-}
-
-.nav-icons img {
-    width: 22px;
-    /* Taille ajustée pour les icônes */
-    height: auto;
-    cursor: pointer;
-    margin-right: 0.8rem;
-}
-
-.nav-icons img:last-child {
-    margin-right: 0;
-}
-
-/*---------------------------------------------------------- 
-        # SECTION : Footer (pied de page) - Mobile first
-        ----------------------------------------------------------*/
-.footer {
-    background-color: var(--couleur-fond-footer);
-    padding: 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--couleur-texte-principale);
-    margin-top: 1.5rem;
-    position: relative;
-}
-
-.footer-section {
-    width: 100%;
-    padding: 0.8rem;
-    text-align: center;
     margin-bottom: 1rem;
 }
 
-.footer-section h3 {
-    font-family: 'Cookie', cursive;
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-    color: var(--couleur-titre);
-}
-
-.hours-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.2rem 0;
+.presentation p {
     font-family: 'Montserrat-Alternates', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--couleur-texte-principale);
+    margin: 0 auto;
 }
 
-.hours-list li {
-    margin-bottom: 0.4rem;
+.item-cupcake,
+.cupcake-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
 }
 
-.closed {
-    color: var(--couleur-accent);
-    font-weight: bold;
-    color: #000;
+/*le  Style pour les galeries sur mobile */
+.container,
+.boutique-cupcake {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.contact-button {
-    display: inline-block;
-    background-color: var(--couleur-accent);
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 25px;
-    text-decoration: none;
-    margin-top: 0.8rem;
-    transition: background-color 0.3s ease;
-}
-
-.contact-button:hover {
-    background-color: var(--couleur-fond-section);
-}
-
-.footer-logo {
-    margin-top: 1.2rem;
-    width: 100px;
+/* la Taille des images pour mobile */
+.featured-image {
+    width: 250px;
     height: auto;
+    max-width: 100%;
+    margin-bottom: 10px;
 }
 
-.phone-number {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.phone-number:hover {
-    color: #000;
-}
-
-.locate-link {
-    color: #000;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.locate-link:hover {
-    color: var(--couleur-lien-hover);
-}
-
-.footer .featured-image {
-    max-width: 90%;
+.container .featured-image {
+    width: 250px;
     height: auto;
-    margin-top: 0.8rem;
-    position: relative;
-    opacity: 1;
+    object-fit: cover;
+    flex-shrink: 0; /* il vas empêche les images de rétrécir */
 }
 
-.copyright {
-    width: 100%;
-    text-align: center;
-    margin-top: 1.5rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 0.8rem;
+.item-cupcake .featured-image,
+.cupcake-item .featured-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
+
+/* l'e-tête et navigation mobile */
+header {
+    height: 80px;
+}
+
+.center-logo .primary-logo {
+    height: 70px;
+}
+
+.nav-menu {
+    top: 80px;
+}
+
+.nav-icons img {
+    width: 20px;
+}
+
 
 /*---------------------------------------------------------- 
-        # SECTION : Media Queries - responsive design
+        # SECTION : Animation des cupcakes
         ----------------------------------------------------------*/
+.cupcake {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    /* pour qu'il soit plus petit pour mobile */
+    overflow: hidden;
+    margin-top: 15px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* Desktop */
+.cupcake-item {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* le style de base pour les deux images de cupcakes */
+.cupcake-item .featured-image {
+    opacity: 0;
+    position: absolute;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+/* l'animation pour le premier cupcake (royal) */
+.cupcake-item img[alt="Cupcake Royale"] {
+    animation-name: cupcake_1;
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* l'animation pour le deuxième cupcake (fraise) avec délai */
+.cupcake-item img[alt="Cupcake Fraise"] {
+    animation-name: cupcake_2;
+    top: -100%;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+/* l'animation du premier cupcake en 4 étapes */
+@keyframes cupcake_1 {
+    0% {
+        right: -100%;
+        opacity: 0;
+    }
+
+    25% {
+        right: 75%;
+        opacity: 0.5;
+    }
+
+    50% {
+        right: 65%;
+        opacity: 0.7;
+    }
+
+    75% {
+        right: 55%;
+        opacity: 0.9;
+    }
+
+    100% {
+        right: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1;
+    }
+}
+
+/* l'animation du deuxième cupcake en 4 étapes */
+@keyframes cupcake_2 {
+    0% {
+        top: -100%;
+        left: 60%;
+        opacity: 0;
+    }
+
+    25% {
+        top: 20%;
+        left: 60%;
+        opacity: 0.5;
+    }
+
+    50% {
+        top: 35%;
+        left: 60%;
+        opacity: 0.7;
+    }
+
+    75% {
+        top: 45%;
+        left: 60%;
+        opacity: 0.9;
+    }
+
+    100% {
+        top: 50%;
+        left: 60%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+}
+
+/*---------------------------------------------------------------- 
+        # ADAPTATION PAR MEDIA QUERIES (Responsiveness)
+        ----------------------------------------------------------------*/
+
+/* pour version Desktop */
 @media screen and (min-width: 1024px) {
+    main {
+        padding: 25px;
+    }
+
     h1 {
-        font-size: 42px;
-    }
-    
-    h1:hover {
-        transform: scale(1.1);
-    }
-    
-    h2 {
-        font-size: 40px;
-        margin-top: 2rem;
-    }
-    
-    h3 {
-        font-size: 40px;
-        margin-bottom: 1rem;
-    }
-    
-    p {
+        font-size: 3.5vw;
         margin-bottom: 1.5rem;
-        font-size: 0.95rem;
     }
-    
-    /* Modification pour uniformiser toutes les images */
-    .featured-image {
+
+    .presentation {
+        padding: 3.5rem 2.5rem;
+    }
+
+    .presentation p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 900px;
+    }
+
+
+    .container .featured-image {
         width: 300px;
         height: 300px;
-        margin: 10px;
-        display: inline-block;
     }
-    
-    .featured-image:hover {
-        transform: scale(1.05);
-    }
-    
-    .container {
-        display: flex;
-        max-width: 1440px;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 0 20px;
-    }
-    
-    /* Pour les logos, on garde une taille différente */
-    .primary-logo,
-    .footer-logo {
-        max-height: 60px;
-    }
-    
-    /* Ajustement pour les conteneurs d'images */
-    .cupcake {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 20px 0;
-        padding: 2rem 0;
-    }
-    
-    .cupcake-item {
-        margin-bottom: 30px;
-        width: auto;
-        margin-right: 20px;
-    }
-    
-    .cupcake-item:last-child {
-        margin-right: 0;
-    }
-    
-    /* Pour la carte dans le footer */
-    .map .featured-image {
+
+    .item-cupcake .featured-image,
+    .cupcake-item .featured-image {
         width: 250px;
-        height: 200px;
+        height: 250px;
     }
-    
-    /* Style pour les icônes de navigation */
-    .search-icon {
-        width: 30px;
-        height: 30px;
-        margin: 0 10px;
+
+    .cupcake {
+        height: 300px;
     }
-    
-    /* Header pour desktop */
-    header {
-        height: 90px;
-    }
-    
-    .navbar {
-        padding: 0 1rem;
-        width: 100%;
-        max-width: 1440px;
-    }
-    
+
     .center-logo .primary-logo {
-        height: 90px;
+        height: 120px;
     }
-    
-    .logo-container {
-        width: 200px;
-        height: 80px;
+
+    header {
+        height: 100px;
     }
-    
-    /* Menu vertical qui apparaît au survol */
+
     .nav-menu {
-        left: 20px;
-        top: 90px;
-        width: 150px;
-        border-radius: 15px;
-        padding: 15px 10px;
+        top: 100px;
     }
-    
-    .nav-menu ul {
-        flex-direction: column;
-    }
-    
-    .nav-item {
-        margin-bottom: 20px;
-    }
-    
-    .nav-item:last-child {
-        margin-bottom: 0;
-    }
-    
-    .nav-link {
-        font-size: 14px;
-    }
-    
-    .nav-link:hover {
-        transform: scale(1.1);
-    }
-    
+
     .nav-icons img {
-        width: 25px;
-        margin-right: 1rem;
-    }
-    
-    .nav-icons img:last-child {
-        margin-right: 0;
+        width: 24px;
     }
 }
 
@@ -602,7 +308,7 @@ header {
     }
 
     .cupcake {
-        justify-content: flex-start;
+        justify-content: center;
         padding: 2rem 0;
     }
 
