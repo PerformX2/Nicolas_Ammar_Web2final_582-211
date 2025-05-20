@@ -1,6 +1,6 @@
 /*--------------------------------------------------------- 
-# SECTION : Variables de couleurs
----------------------------------------------------------*/
+        # SECTION : Variables de couleurs
+        ---------------------------------------------------------*/
 :root {
     /* Palette de couleurs rose */
     --rose-pale: #FDB9BA;
@@ -16,7 +16,7 @@
     --rose-blanc: #FDF1F3;
     /* Rose presque blanc */
 
-    /* Variables définies */
+    /* Variables fonctionnelles */
     --couleur-fond-principale: var(--rose-pale);
     --couleur-texte-principale: #333;
     --couleur-accent: var(--rose-fonce);
@@ -30,14 +30,14 @@
 /*--------------------------------------------------------- 
 # SECTION : font-face 
 ---------------------------------------------------------*/
-@font-face {    /* Typographie #1 */
+@font-face {
     font-family: "Cookie";
     src: url("../assets/polices/Cookie/Cookie-Regular.ttf") format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {    /* Typographie #2 */
+@font-face {
     font-family: "Montserrat-Alternates";
     src: url("../assets/polices/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format('truetype');
     font-weight: normal;
@@ -53,7 +53,6 @@ body {
     font-family: 'Montserrat-Alternates', sans-serif;
     background-color: var(--couleur-fond-principale);
     color: var(--couleur-texte-principale);
-    line-height: 1.6;
     font-size: 16px;
 }
 
@@ -329,31 +328,18 @@ header {
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 1rem;
 }
 
-/*---------------------------------------------------------- 
-        # SECTION : Héros et présentation
-        ----------------------------------------------------------*/
-.presentation {
-    padding: 2rem 1rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--rose-blanc);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+.nav-icons img {
+    width: 22px;
+    /* Taille ajustée pour les icônes */
+    height: auto;
+    cursor: pointer;
+    margin-right: 0.8rem;
 }
 
-.presentation h2 {
-    color: var(--couleur-titre);
-    font-family: 'Cookie', cursive;
-    margin-bottom: 1.5rem;
-}
-
-.presentation p {
-    text-align: justify;
-    line-height: 1.8;
+.nav-icons img:last-child {
+    margin-right: 0;
 }
 
 /*---------------------------------------------------------- 
@@ -463,52 +449,164 @@ header {
     font-size: 0.8rem;
 }
 
-/*---------------------------------------------------------------- 
-        # ADAPTATION PAR MEDIA QUERIES (Responsiveness)
-        ----------------------------------------------------------------*/
+/*---------------------------------------------------------- 
+        # SECTION : Media Queries - responsive design
+        ----------------------------------------------------------*/
 
-/* Styles pour les écrans d'une largeur de minimum 778px et plus */
-@media screen and (min-width: 778px) {
+/* Desktop */
+@media screen and (min-width: 1024px) {
     h1 {
-        font-family: 'Cookie', cursive;
-        font-size: 4vw;
+        font-size: 42px;
     }
-
-    .presentation {
-        padding: 3rem 2rem;
+    
+    h1:hover {
+        transform: scale(1.1);
     }
-
-    .presentation p {
-        font-size: 1.1rem;
-        font-family: 'Montserrat-Alternates', sans-serif;
+    
+    h2 {
+        font-size: 40px;
+        margin-top: 2rem;
     }
-
-    .center-logo .primary-logo {
-        height: 120px;
-        /* Encore plus grand sur les écrans larges */
+    
+    h3 {
+        font-size: 40px;
+        margin-bottom: 1rem;
     }
-
+    
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Modification pour uniformiser toutes les images */
+    .featured-image {
+        width: 300px;
+        height: 300px;
+        margin: 10px;
+        display: inline-block;
+    }
+    
+    .featured-image:hover {
+        transform: scale(1.05);
+    }
+    
+    .container {
+        display: flex;
+        max-width: 1440px;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 20px;
+    }
+    
+    /* Pour les logos, on garde une taille différente */
+    .primary-logo,
+    .footer-logo {
+        max-height: 60px;
+    }
+    
+    /* Ajustement pour les conteneurs d'images */
+    .cupcake {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px 0;
+        padding: 2rem 0;
+    }
+    
+    .cupcake-item {
+        margin-bottom: 30px;
+        width: auto;
+        margin-right: 20px;
+    }
+    
+    .cupcake-item:last-child {
+        margin-right: 0;
+    }
+    
+    /* Pour la carte dans le footer */
+    .map .featured-image {
+        width: 250px;
+        height: 200px;
+    }
+    
+    /* Style pour les icônes de navigation */
+    .search-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+    }
+    
+    /* Header pour desktop */
     header {
-        height: 100px;
-        /* Un peu plus grand sur les écrans larges */
+        height: 90px;
     }
-
+    
+    .navbar {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 1440px;
+    }
+    
+    .center-logo .primary-logo {
+        height: 90px;
+    }
+    
+    .logo-container {
+        width: 200px;
+        height: 80px;
+    }
+    
+    /* Menu vertical qui apparaît au survol */
     .nav-menu {
-        top: 100px;
-        /* Ajustement correspondant pour la position du menu dropdown */
+        left: 20px;
+        top: 90px;
+        width: 150px;
+        border-radius: 15px;
+        padding: 15px 10px;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        margin-bottom: 20px;
+    }
+    
+    .nav-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+    }
+    
+    .nav-link:hover {
+        transform: scale(1.1);
+    }
+    
+    .nav-icons img {
+        width: 25px;
+        margin-right: 1rem;
+    }
+    
+    .nav-icons img:last-child {
+        margin-right: 0;
     }
 }
 
-/* Styles pour les écrans plus petits */
-@media screen and (max-width: 600px) {
-    .featured-image {
-        width: 250px;
-        height: 250px;
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
     }
 
-    .container .featured-image {
-        width: 33.333%;
-        /* 3 images visibles à la fois sur mobile */
-        height: 200px;
+    .cupcake {
+        justify-content: flex-start;
+        padding: 2rem 0;
+    }
+
+    .cupcake-item {
+        width: 22%;
     }
 }
