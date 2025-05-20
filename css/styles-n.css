@@ -1,6 +1,6 @@
-/*--------------------------------------------------------- 
-# SECTION : Variables de couleurs
----------------------------------------------------------*/
+/*---------------------------------------------------------
+        # SECTION : Variables de couleurs
+        ---------------------------------------------------------*/
 :root {
     /* Palette de couleurs rose */
     --rose-pale: #FDB9BA;
@@ -15,8 +15,8 @@
     /* Rose foncé */
     --rose-blanc: #FDF1F3;
     /* Rose presque blanc */
-
-    /* Variables définies */
+ 
+    /* Variables fonctionnelles */
     --couleur-fond-principale: var(--rose-pale);
     --couleur-texte-principale: #333;
     --couleur-accent: var(--rose-fonce);
@@ -26,155 +26,344 @@
     --couleur-fond-footer: var(--rose-pale);
     --couleur-titre: var(--rose-fonce);
 }
-
-/*--------------------------------------------------------- 
-# SECTION : font-face 
+ 
+/*---------------------------------------------------------
+# SECTION : font-face
 ---------------------------------------------------------*/
-
-/* Permet d’importer une police externe dans le site.*/
-
-@font-face {    /* Typographie #1 */
+@font-face {
     font-family: "Cookie";
     src: url("../assets/polices/Cookie/Cookie-Regular.ttf") format('opentype');
     font-weight: normal;
     font-style: normal;
 }
-
-@font-face {    /* Typographie #2 */
+ 
+@font-face {
     font-family: "Montserrat-Alternates";
     src: url("../assets/polices/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format('truetype');
     font-weight: normal;
     font-style: italic;
 }
-
-
-/*---------------------------------------------------------- 
-# SECTION : Styles de Nicolas 
+ 
+/*----------------------------------------------------------
+# SECTION : Base styles (Mobile First)
 ----------------------------------------------------------*/
-
-.hero {
-    background-color: #fff0f7;  /*Étant donné que j'ai réussi à faire le héro, mais je n'ai pas réussi à étendre images dans tout l'espace voici la couleur du fond héro*/
-    width: 100%;    /* Prend toute la largeur du conteneur.*/
-    padding: 60px 20px; /* Prend toute la largeur du conteneur.*/
-    display: flex;  /* Active Flexbox pour alignement..*/
-    justify-content: center; /*Centre horizontalement le contenu.*/
-    align-items: center;    /* Centre verticalement le contenu.*/
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--couleur-texte-principale);
+    margin: 0;
+    padding: 0;
 }
-
+ 
+h1 {
+    font-family: 'Cookie', cursive;
+    font-size: 2.5rem;
+    color: var(--couleur-titre);
+}
+ 
+/*----------------------------------------------------------
+# SECTION : Héros et présentation (Mobile First)
+----------------------------------------------------------*/
+.presentation {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin: 0 auto;
+    background-color: var(--rose-blanc);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+ 
+.presentation h2 {
+    color: var(--couleur-titre);
+    font-family: 'Cookie', cursive;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+ 
+.presentation p {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+ 
+.hero {
+    width: 100%;
+    background-color: #fff0f7;
+    /* rose pâle */
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+ 
 .hero::before {
-    content: ''; /* Ça génère un pseudo-élément vide. / C’est obligatoire pour que le pseudo-élément existe et puisse être stylisé avec du CSS */
-    position: absolute; /*Permet de positionner librement l’élément.*/
-    top: 0; 
-    left: 0; 
-    /*Position en haut à gauche.*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    /*Ça rempli tout l'élément parent*/
 }
-
-.hero-content {     /* Sert à styliser l'enfant de ma classe hero */
-    display: flex;  
-    flex-wrap: wrap; /*Ça affiche sur une même ligne et les gardes juxtaposés */
-    justify-content: center;
-    gap: 30px; /*Espace entre les éléments internes. (c'est un écart) */
-    max-width: 1200px; /*Limite la largeur totale du contenu.*/
+ 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
 }
-
-.hero-content img {    /* Sert à styliser les images de l'enfant dans la classe hero */
-    width: 250px;   
-    height: auto;   /* Adapte la hauteur automatique */
-    object-fit: cover; /* Ça coupe l’image pour bien utiliser l’espace.*/
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transite les changements en douceur.*/
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ça ajoute une ombre portée.*/
+ 
+.hero-content img {
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
-.hero-content img:hover {   /* Sert à styliser les images de l'enfant dans la classe hero pendant le survol*/
-    transform: scale(1.05);  /*Ça agrandit légèrement l’image au survol.*/
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /*L'ombre portée est un peu plus forte*/
+ 
+.hero-content img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
-/* Ça désigne la zone de cette classe et ça contient tous les enfants*/
-.main-evenement {  
-  margin-left: 100px;   /* Décalage vers la droite.*/
-  display: flex;
-  justify-content: space-between; /* Ça réparti également.*/
-  padding: 30px;    /*Espace intérieur.*/
+ 
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
 }
-
-/*Style pour le texte dans événement*/
-.texte-evenement { 
-  width: 50%;   /*Ça occupe la moitié de l’espace horizontal.*/
-  padding-right: 20px;  /* Ça met de l'espace entre le texte et les images.*/
+ 
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
-
-/* Styles pour mon h1 fils du .main-evenement */
+ 
+/*----------------------------------------------------------
+# SECTION : évènement (Mobile First)
+----------------------------------------------------------*/
+.main-evenement {
+    padding: 10px;
+    margin-left: 0;
+    flex-direction: column;
+}
+ 
+.header-evenement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--rose-tres-pale);
+}
+ 
+.header-evenement .logo {
+    max-height: 60px;
+}
+ 
+.header-icons .icon {
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+ 
+/* Menu vertical en haut pour mobile */
+.side-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: var(--rose-pale);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+    z-index: 100;
+}
+ 
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+ 
+.side-menu li {
+    margin: 0;
+    text-align: center;
+}
+ 
+.side-menu img {
+    width: 24px;
+    height: auto;
+}
+ 
+.side-menu span {
+    display: none;
+    /* Cacher les textes sur mobile */
+}
+ 
+/* Contenu principal */
+.main-evenement {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    margin-left: 0;
+    background-color: var(--rose-blanc);
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+ 
+.texte-evenement {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+ 
 .texte-evenement h1 {
-  font-size: 3rem;  /*Ça met un gros titre et les "rem" ça permet d'adapter le h1 au navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN)*/
-  color: var(--rose-fonce); /*met une variable de couleur déclarée dans le root du début*/
+    font-size: 2rem;
+    color: var(--rose-fonce);
+    text-align: center;
 }
-
-/* Ajustement des images (grâce à flex-wrap) */
-.images-evenement img { 
-  width: 300px; 
-  height: 300px; 
-  /* Taille carrée fixée.*/
-  object-fit: cover; /* Ça coupe l’image pour bien utiliser l’espace.*/
-  border-radius: 8px; /*Ça arrondis les coins légèrement.*/
-  margin: 10px;  /* Espacement autour de l’image.*/
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ça ajoute une ombre portée comme les images du hero*/
-  transition: transform 0.3s ease; /* Transite les changements en douceur comme dans le hero*/
+ 
+.images-evenement {    
+    display: flex;    
+    flex-wrap: wrap;    
+    justify-content: space-between;    
+    width: 45%;
 }
-
-.images-evenement img:hover {
-    transform: scale(1.05); /*Ça agrandit légèrement l’image au survol.*/
+ 
+.images-evenement img {
+    width: 100%;
 }
-
-/*---------------------------------------------------------------- 
-        # ADAPTATION PAR MEDIA QUERIES (Responsiveness)
-        ----------------------------------------------------------------*/
-
-/* Styles pour les écrans d'une largeur de minimum 778px et plus (Grand Écran) */
-@media screen and (min-width: 778px) { 
+ 
+.featured-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+ 
+.container .featured-image {
+    width: 100%;
+    height: 180px;
+}
+ 
+/*----------------------------------------------------------------
+# ADAPTATION PAR MEDIA QUERIES (Responsive uniquement pour 1440px et plus)
+----------------------------------------------------------------*/
+ 
+/* Écrans larges (1440px et plus) */
+@media screen and (min-width: 1440px) {
     h1 {
-        font-family: 'Cookie', cursive; 
-        font-size: 4vw; /*Adapte la police du navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN / DANS CE CAS 778PX ET PLUS)*/ 
+        font-size: 3.5rem;
     }
-
+ 
     .presentation {
-        padding: 3rem 2rem; /*Ça renforce l'espacement.*/
-    } 
-    
+        padding: 3rem 2rem;
+        max-width: 1000px;
+    }
+ 
+    .presentation h2 {
+        font-size: 2.8rem;
+    }
+ 
     .presentation p {
-        font-size: 1.1rem;  /*Adapte le texte du navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN / DANS CE CAS 778PX ET PLUS)*/ 
-        font-family: 'Montserrat-Alternates', sans-serif;   /* Utilise police stylée.*/
+        text-align: justify;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        font-family: 'Montserrat-Alternates', sans-serif;
     }
-
-    .center-logo .primary-logo {
-        height: 120px;  /*Taille des logos et header.*/
-        /* Encore plus haut sur les écrans larges */
+ 
+    .hero {
+        padding: 80px 20px;
     }
-
-    header {
-        height: 100px;  
-        /* Un peu plus grand sur les écrans larges */
+ 
+    .hero-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1400px;
+        gap: 50px;
     }
-
-    .nav-menu {
-        top: 100px; /*Décalage du menu pour coller au header.*/
-        /* Ajustement correspondant pour la position du menu dropdown */
+ 
+    .hero-content img {
+        width: 300px;
     }
-}
-
-/* Styles pour les écrans plus petits (mobile) + Ça sert à ajuster la taille des images en très petit écran (mobile) */
-@media screen and (max-width: 600px) { 
-    .featured-image {
-        width: 250px;
-        height: 250px;
+ 
+    .hero h1 {
+        font-size: 3.5rem;
     }
-
+ 
+    .hero p {
+        font-size: 1.7rem;
+    }
+ 
+    /* Ajustement du menu latéral */
+    .side-menu {
+        top: 0;
+        bottom: auto;
+        height: 100%;
+        width: 100px;
+        flex-direction: column;
+    }
+ 
+    .side-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .side-menu li {
+        margin: 20px 0;
+    }
+ 
+    .side-menu img {
+        width: 40px;
+    }
+ 
+    .side-menu span {
+        display: block;
+        font-size: 1em;
+        color: var(--rose-fonce);
+        margin-top: 5px;
+    }
+ 
+    /* Ajustement du contenu principal */
+    .main-evenement {
+        margin-left: 100px;
+        padding: 40px;
+        flex-direction: row;
+    }
+ 
+    .texte-evenement {
+        width: 60%;
+        padding-right: 30px;
+    }
+ 
+    .texte-evenement h1 {
+        font-size: 3.5rem;
+        text-align: left;
+    }
+ 
+    .header-evenement .logo {
+        max-height: 120px;
+    }
+ 
+    .header-icons .icon {
+        width: 50px;
+        margin-left: 30px;
+    }
+ 
     .container .featured-image {
-        width: 33.333%;
-        /* 3 images visibles à la fois sur mobile */
-        height: 200px;
+        width: 100%;
+        height: 250px;
     }
 }
