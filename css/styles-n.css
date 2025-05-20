@@ -94,5 +94,36 @@
 
 /* Ça désigne la zone de cette classe et ça contient tous les enfants*/
 .main-evenement {  
- 
+  margin-left: 100px;   /* Décalage vers la droite.*/
+  display: flex;
+  justify-content: space-between; /* Ça réparti également.*/
+  padding: 30px;    /*Espace intérieur.*/
+}
+
+/*Style pour le texte dans événement*/
+.texte-evenement { 
+  width: 50%;   /*Ça occupe la moitié de l’espace horizontal.*/
+  padding-right: 20px;  /* Ça met de l'espace entre le texte et les images.*/
+}
+
+/* Styles pour mon h1 fils du .main-evenement */
+.texte-evenement h1 {
+  font-size: 3rem;  /*Ça met un gros titre et les "rem" ça permet d'adapter le h1 au navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN)*/
+  color: var(--rose-fonce); /*met une variable de couleur déclarée dans le root du début*/
+}
+
+/* Ajustement des images (grâce à flex-wrap) */
+.images-evenement img { 
+  width: 300px; 
+  height: 300px; 
+  /* Taille carrée fixée.*/
+  object-fit: cover; /* Ça coupe l’image pour bien utiliser l’espace.*/
+  border-radius: 8px; /*Ça arrondis les coins légèrement.*/
+  margin: 10px;  /* Espacement autour de l’image.*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ça ajoute une ombre portée comme les images du hero*/
+  transition: transform 0.3s ease; /* Transite les changements en douceur comme dans le hero*/
+}
+
+.images-evenement img:hover {
+    transform: scale(1.05); /*Ça agrandit légèrement l’image au survol.*/
 }
