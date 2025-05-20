@@ -127,3 +127,22 @@
 .images-evenement img:hover {
     transform: scale(1.05); /*Ça agrandit légèrement l’image au survol.*/
 }
+
+/* Styles pour les écrans d'une largeur de minimum 778px et plus (Grand Écran) */
+@media screen and (min-width: 778px) { 
+    
+}
+
+/* Styles pour les écrans plus petits (mobile) + Ça sert à ajuster la taille des images en très petit écran (mobile) */
+@media screen and (max-width: 600px) { 
+    .featured-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .container .featured-image {
+        width: 33.333%;
+        /* 3 images visibles à la fois sur mobile */
+        height: 200px;
+    }
+}
