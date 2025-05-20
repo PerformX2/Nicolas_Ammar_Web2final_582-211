@@ -47,6 +47,7 @@
     font-style: italic;
 }
 
+
 /*---------------------------------------------------------- 
 # SECTION : Styles de Nicolas 
 ----------------------------------------------------------*/
@@ -82,13 +83,13 @@
 .hero-content img {    /* Sert à styliser les images de l'enfant dans la classe hero */
     width: 250px;   
     height: auto;   /* Adapte la hauteur automatique */
-    object-fit: cover; /* Coupe l’image pour bien remplir l’espace.*/
+    object-fit: cover; /* Ça coupe l’image pour bien utiliser l’espace.*/
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transite les changements en douceur.*/
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ça ajoute une ombre portée.*/
 }
 
 .hero-content img:hover {   /* Sert à styliser les images de l'enfant dans la classe hero pendant le survol*/
-    transform: scale(1.05);  /*Ça agrandit légèrement l’image.*/
+    transform: scale(1.05);  /*Ça agrandit légèrement l’image au survol.*/
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /*L'ombre portée est un peu plus forte*/
 }
 
@@ -128,9 +129,40 @@
     transform: scale(1.05); /*Ça agrandit légèrement l’image au survol.*/
 }
 
+/*---------------------------------------------------------------- 
+        # ADAPTATION PAR MEDIA QUERIES (Responsiveness)
+        ----------------------------------------------------------------*/
+
 /* Styles pour les écrans d'une largeur de minimum 778px et plus (Grand Écran) */
 @media screen and (min-width: 778px) { 
+    h1 {
+        font-family: 'Cookie', cursive; 
+        font-size: 4vw; /*Adapte la police du navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN / DANS CE CAS 778PX ET PLUS)*/ 
+    }
+
+    .presentation {
+        padding: 3rem 2rem; /*Ça renforce l'espacement.*/
+    } 
     
+    .presentation p {
+        font-size: 1.1rem;  /*Adapte le texte du navigateur(S'ADAPTE ENTRE VARIATIONS DE TAILLE D'ÉCRAN / DANS CE CAS 778PX ET PLUS)*/ 
+        font-family: 'Montserrat-Alternates', sans-serif;   /* Utilise police stylée.*/
+    }
+
+    .center-logo .primary-logo {
+        height: 120px;  /*Taille des logos et header.*/
+        /* Encore plus haut sur les écrans larges */
+    }
+
+    header {
+        height: 100px;  
+        /* Un peu plus grand sur les écrans larges */
+    }
+
+    .nav-menu {
+        top: 100px; /*Décalage du menu pour coller au header.*/
+        /* Ajustement correspondant pour la position du menu dropdown */
+    }
 }
 
 /* Styles pour les écrans plus petits (mobile) + Ça sert à ajuster la taille des images en très petit écran (mobile) */
